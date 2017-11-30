@@ -127,7 +127,8 @@ class Image extends Component {
         </div>;
 
         return (
-          <Lazyload>
+          <LazyLoad height={270}
+      onContentVisible={() => console.log('look ma I have been lazyloaded!')}>
                 <div className="tile"
             key={"tile-"+this.props.index}
             onMouseEnter={(e) => this.setState({hover: true})}
