@@ -127,8 +127,7 @@ class Image extends Component {
         </div>;
 
         return (
-          <LazyLoad height={270}
-      onContentVisible={() => console.log('look ma I have been lazyloaded!')}>
+
                 <div className="tile"
             key={"tile-"+this.props.index}
             onMouseEnter={(e) => this.setState({hover: true})}
@@ -188,10 +187,12 @@ class Image extends Component {
             key={"tile-viewport-"+this.props.index}
             onClick={this.props.onClick ?
                      (e) => this.props.onClick.call(this, this.props.index, e) : null}>
+              <LazyLoad height={270}
+                 onContentVisible={() => console.log('look ma I have been lazyloaded!')}>
                 <img
             key={"img-"+this.props.index}
             src={this.props.item.thumbnail} title={this.props.item.caption}
-            style={this.thumbnailStyle()} />
+            style={this.thumbnailStyle()} /></LazyLoad>
                 </div>
                 {this.props.item.thumbnailCaption && (
                         <div className="tile-description"
@@ -208,7 +209,7 @@ class Image extends Component {
                         {this.props.item.thumbnailCaption}
                     </div>
                 )}
-            </div></LazyLoad>
+            </div>
 
         );
     }
