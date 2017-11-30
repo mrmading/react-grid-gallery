@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import CheckButton from './CheckButton.js';
+import LazyLoad from 'react-lazy-load';
 
 class Image extends Component {
     constructor (props) {
@@ -126,6 +127,7 @@ class Image extends Component {
         </div>;
 
         return (
+          <Lazyload>
                 <div className="tile"
             key={"tile-"+this.props.index}
             onMouseEnter={(e) => this.setState({hover: true})}
@@ -205,7 +207,8 @@ class Image extends Component {
                         {this.props.item.thumbnailCaption}
                     </div>
                 )}
-            </div>
+            </div></LazyLoad>
+
         );
     }
 }
