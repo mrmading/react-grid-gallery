@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import CheckButton from './CheckButton.js';
-import LazyLoad from 'react-lazy-load';
+import LazyLoadImg from 'react-lazyload-img';
 
 class Image extends Component {
     constructor (props) {
@@ -187,12 +187,11 @@ class Image extends Component {
             key={"tile-viewport-"+this.props.index}
             onClick={this.props.onClick ?
                      (e) => this.props.onClick.call(this, this.props.index, e) : null}>
-              <LazyLoad height={270}
-                 onContentVisible={() => console.log('look ma I have been lazyloaded!')}>
-                <img
+
+               <LazyLoadImg
             key={"img-"+this.props.index}
             src={this.props.item.thumbnail} title={this.props.item.caption}
-            style={this.thumbnailStyle()} /></LazyLoad>
+            style={this.thumbnailStyle()} />
                 </div>
                 {this.props.item.thumbnailCaption && (
                         <div className="tile-description"
